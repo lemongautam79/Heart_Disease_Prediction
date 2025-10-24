@@ -2,11 +2,20 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+# ✅ Configure page before any Streamlit element
+st.set_page_config(
+    page_title="Heart Disease Predictor ❤️",
+    # page_icon="❤️",  # You can use an emoji or a local image file
+    page_icon="logo.svg",  # You can use an emoji or a local image file
+    layout="centered",  # Optional: can be "wide" or "centered"
+    initial_sidebar_state="collapsed"  # Optional
+)
+
 model = joblib.load('KNN_Heart.pkl')
 scaler = joblib.load('scaler.pkl')
 expected_columns = joblib.load('columns.pkl')
 
-st.title("Heart Stroke Prediction ♥")
+st.title("Heart Stroke Prediction ❤️")
 st.markdown("Provide the following details:")
 
 age = st.slider("Age", 18, 100, 40)
